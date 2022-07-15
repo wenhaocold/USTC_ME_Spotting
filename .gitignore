@@ -1,0 +1,9 @@
+cas(me)^2_output/
+samm_output/
+samm_output_25/
+__pycache__/
+.history
+record/
+cross_output/
+Session.vim
+*.ipynb

@@ -1,0 +1,178 @@
+dataset: "samm" #"cross" # "cas(me)^3" 
+
+cas(me)^2:
+  dataset: "cas(me)^2"
+  mode: "abfcm_iou_mul_process" #"abfcm_output_mul_process" #"abfcm_final_result" #"abfcm_train_mul_process" #"abfcm_nms_mul_process" 
+  RATIO_SCALE: 1
+  SEGMENT_LENTH: 256
+  RECEPTIVE_FILED: 15
+  save_model: True
+  micro_average_len: 15
+  macro_average_len: 59
+  macro_min: 15
+  micro_min: 5
+  epoch_begin: 6
+  nms_top_K: 5
+
+  project_root: "./"
+  feature_root: "./feature_dir/cas(me)^2/feature"
+  segment_feat_root: "./feature_dir/cas(me)^2/feature_segment"
+  model_save_root: "/home/whcold/Datas/cold_models/casme"
+  output_dir_name: "cas(me)^2_output"
+  anno_csv: "./info_csv/cas(me)_new.csv"
+  num_workers: 2
+  device: 'cuda:0'
+
+  abfcm_training_lr: 0.01
+  abfcm_weight_decay: 0.1
+  abfcm_lr_scheduler: 0.96
+  abfcm_apex_gamma: 1
+  abfcm_apex_alpha: 0.90
+  abfcm_action_gamma: 1
+  abfcm_action_alpha: 0.80
+  abfcm_start_end_gama: 1
+  abfcm_start_end_alpha: 0.90
+  abfcm_label_smooth: 0.16
+  abfcm_best_epoch: 47
+
+  micro_apex_score_threshold: 0.50
+  macro_apex_score_threshold: 0.50
+
+  epochs: 100
+  batch_size: 128
+
+  verbose: False
+
+  macro_ration: 0.5 # balance micro and macro
+  micro_normal_range: 1
+  macro_normal_range: 3
+
+  subject_list: [
+      "casme_016","casme_015","casme_019","casme_020","casme_021",
+      "casme_022","casme_023","casme_024","casme_025","casme_026",
+      "casme_027","casme_029","casme_030","casme_031","casme_032",
+      "casme_033","casme_034","casme_035","casme_036","casme_037",
+      "casme_038","casme_040"
+  ]
+
+samm:
+  dataset: "samm"
+  mode: "abfcm_output_mul_process" #"abfcm_iou_mul_process" #"abfcm_final_result" #"abfcm_train_mul_process" #"abfcm_nms_mul_process" 
+  RATIO_SCALE: 1
+  SEGMENT_LENTH: 256
+  RECEPTIVE_FILED: 15
+
+  save_model: True
+  micro_average_len: 15
+  macro_average_len: 59
+  macro_min: 15
+  micro_min: 5
+  epoch_begin: 6
+  # M: 54
+  nms_top_K: 5 # 100
+
+  project_root: "./"
+  feature_root: "./feature_dir/samm_25/feature_25"
+  segment_feat_root: "./feature_dir/samm_25/feature_segment_25"
+  model_save_root: "/home/whcold/Datas/cold_models/samm_25"
+  output_dir_name: "samm_output_25"
+  anno_csv: "./info_csv/samm_new_25.csv"
+  num_workers: 2
+  device: 'cuda:0'
+
+  abfcm_training_lr: 0.01
+  abfcm_weight_decay: 0.1
+  abfcm_lr_scheduler: 0.96
+  abfcm_apex_gamma: 1
+  abfcm_apex_alpha: 0.90
+  abfcm_action_gamma: 1
+  abfcm_action_alpha: 0.80
+  abfcm_start_end_gama: 1
+  abfcm_start_end_alpha: 0.90
+  abfcm_label_smooth: 0.16
+  abfcm_best_epoch: 47
+
+  micro_apex_score_threshold: 0.50
+  macro_apex_score_threshold: 0.50
+
+  epochs: 100
+  batch_size: 128
+
+  verbose: False
+
+  macro_ration: 0.7
+  micro_normal_range: 1
+  macro_normal_range: 3
+
+  subject_list: [
+        "samm_007","samm_006","samm_008","samm_009","samm_010","samm_011",
+        "samm_012","samm_013","samm_014","samm_015","samm_016","samm_017",
+        "samm_018","samm_019","samm_020","samm_021","samm_022","samm_023",
+        "samm_024","samm_025","samm_026","samm_028","samm_030","samm_031",
+        "samm_032","samm_033","samm_034","samm_036","samm_035","samm_037"
+  ]
+
+cross:
+  dataset: "cross"
+  RATIO_SCALE: 1
+  SEGMENT_LENTH: 256
+  RECEPTIVE_FILED: 15
+  save_model: True
+  micro_average_len: 15
+  macro_average_len: 59
+  macro_min: 15
+  micro_min: 5
+  epoch_begin: 6
+  nms_top_K: 5
+
+  project_root: "./"
+  feature_root: "./feature_dir/cross/feature_split"
+  segment_feat_root: "./feature_dir/cross/feature_segment"
+  model_save_root: "/home/whcold/Datas/cold_models/cross"
+  output_dir_name: "cross_output"
+  anno_csv: "./info_csv/cross_test.csv"
+  num_workers: 2
+  device: 'cuda:0'
+
+  abfcm_training_lr: 0.01
+  abfcm_weight_decay: 0.1
+  abfcm_lr_scheduler: 0.96
+  abfcm_apex_gamma: 1
+  abfcm_apex_alpha: 0.90
+  abfcm_action_gamma: 1
+  abfcm_action_alpha: 0.80
+  abfcm_start_end_gama: 1
+  abfcm_start_end_alpha: 0.90
+  abfcm_label_smooth: 0.16
+  abfcm_best_epoch: 47
+
+  micro_apex_score_threshold: 0.50
+  macro_apex_score_threshold: 0.50
+
+  epochs: 200
+  batch_size: 128
+
+  verbose: False
+
+  macro_ration: 0.7 # balance micro and macro
+  micro_normal_range: 1
+  macro_normal_range: 3
+
+  subject_list: [
+        "casme_016","casme_015","casme_019","casme_020","casme_021",
+        "casme_022","casme_023","casme_024","casme_025","casme_026",
+        "casme_027","casme_029","casme_030","casme_031","casme_032",
+        "casme_033","casme_034","casme_035","casme_036","casme_037",
+        "casme_038","casme_040",
+
+        "samm_007","samm_006","samm_008","samm_009","samm_010","samm_011",
+        "samm_012","samm_013","samm_014","samm_015","samm_016","samm_017",
+        "samm_018","samm_019","samm_020","samm_021","samm_022","samm_023",
+        "samm_024","samm_025","samm_026","samm_028","samm_030","samm_031",
+        "samm_032","samm_033","samm_034","samm_036","samm_035","samm_037",
+
+        "smic_s01", "smic_s02", "smic_s03", "smic_s04",
+        "smic_s05", "smic_s06", "smic_s08", "smic_s09",
+        "smic_s11", "smic_s12", "smic_s13", "smic_s14",
+        "smic_s15", "smic_s18", "smic_s19", "smic_s20",
+    ]
